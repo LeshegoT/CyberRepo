@@ -1,0 +1,10 @@
+# Use the official Kali Linux base image
+FROM kalilinux/kali-rolling
+
+# Update packages and install necessary tools
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y nmap sqlmap hydra metasploit-framework proxychains iputils-ping
+# Add more tools as needed from the prompt, e.g., gdb, afl, etc.
+
+# Set the entrypoint to a shell so you can run commands
+CMD ["/bin/bash"]

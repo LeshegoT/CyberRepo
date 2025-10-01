@@ -1,0 +1,29 @@
+
+
+version: '3.8'
+services:
+  vulnshop:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - dbdata:/usr/src/app/data
+    restart: unless-stopped
+    networks:
+      - pen-test-net
+
+  kali:
+    build:
+      context: .
+      dockerfile: Dockerfile.kali  # Assuming you name your Kali Dockerfile differently
+    stdin_open: true # Keep stdin open to allow for interactive session
+    tty: true # Allocate a pseudo-TTY
+    networks:
+      - pen-test-net
+
+volumes:
+  dbdata:
+
+networks:
+  pen-test-net:
+    driver: bridge
