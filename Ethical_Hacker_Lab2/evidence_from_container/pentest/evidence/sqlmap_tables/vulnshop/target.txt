@@ -1,1 +1,0 @@
-http://vulnshop:3000/search?q=test (GET)  # /usr/bin/sqlmap -u http://vulnshop:3000/search?q=test --batch --tables --output-dir=/home/pentest/evidence/sqlmap_tables
