@@ -1,0 +1,1 @@
+No app.js found by automated search; please check /usr/src/app or project root and copy app.js to /home/pentest/evidence/2-7_code_analysis
