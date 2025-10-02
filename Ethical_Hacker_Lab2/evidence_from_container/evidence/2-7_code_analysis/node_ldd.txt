@@ -1,2 +1,0 @@
-ldd: missing file arguments
-Try `ldd --help' for more information.

@@ -1,31 +1,0 @@
-
-        /'___\  /'___\           /'___\       
-       /\ \__/ /\ \__/  __  __  /\ \__/       
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
-         \ \_\   \ \_\  \ \____/  \ \_\       
-          \/_/    \/_/   \/___/    \/_/       
-
-       v2.1.0-dev
-________________________________________________
-
- :: Method           : GET
- :: URL              : http://vulnshop:3000/search?q=FUZZ
- :: Wordlist         : FUZZ: /home/pentest/ffuf_payloads.txt
- :: Output file      : /home/pentest/evidence/2-6_fuzz/ffuf_payloads.json
- :: File format      : json
- :: Follow redirects : false
- :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 20
- :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
-________________________________________________
-
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2K%00                     [Status: 500, Size: 8, Words: 2, Lines: 1, Duration: 6ms][0m
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2K''                      [Status: 200, Size: 43, Words: 4, Lines: 1, Duration: 6ms][0m
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2K<script>alert(1)</script> [Status: 200, Size: 66, Words: 4, Lines: 1, Duration: 6ms][0m
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2K..\\..\\windows\\system32\\drivers\\etc\\hosts [Status: 200, Size: 87, Words: 4, Lines: 1, Duration: 6ms][0m
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2K../../etc/passwd        [Status: 200, Size: 57, Words: 4, Lines: 1, Duration: 6ms][0m
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2K'                       [Status: 200, Size: 42, Words: 4, Lines: 1, Duration: 7ms][0m
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2Ktest                    [Status: 200, Size: 45, Words: 4, Lines: 1, Duration: 7ms][0m
-[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::[2K:: Progress: [10/10] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::

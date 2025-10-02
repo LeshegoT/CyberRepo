@@ -1,7 +1,0 @@
-strict_chain
-proxy_dns
-remote_dns_subnet 224
-
-[ProxyList]
-# tor socks5 proxy
-socks5  127.0.0.1 9050

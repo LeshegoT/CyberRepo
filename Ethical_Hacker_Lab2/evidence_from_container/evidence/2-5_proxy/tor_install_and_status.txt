@@ -1,4 +1,0 @@
-Starting tor daemon...Oct 01 14:05:00.792 [warn] Could not bind to 127.0.0.1:9050: Address already in use. Is Tor already running?
-Oct 01 14:05:00.793 [warn] Failed to parse/validate config: Failed to bind one of the listener ports.
-Oct 01 14:05:00.793 [err] Reading config failed--see warnings above.
-failed.
