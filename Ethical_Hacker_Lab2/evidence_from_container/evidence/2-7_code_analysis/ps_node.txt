@@ -1,0 +1,2 @@
+root        2028  0.0  0.0   4076  1940 pts/1    S+   14:47   0:00 grep -E --color=auto node|vulnshop|app.js
+root        2029  0.0  0.0   3024  1144 pts/1    S+   14:47   0:00 tee /home/pentest/evidence/2-7_code_analysis/ps_node.txt
