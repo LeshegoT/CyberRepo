@@ -1,0 +1,16 @@
+The static analysis of app.js revealed two critical logic flaws:
+
+Password Check: In the /login route, the application performs a password check by directly embedding the user-provided username and password into a SQL query string.
+
+JavaScript
+
+const sql = `SELECT id,username FROM users WHERE username='${username}' AND password='${password}'`;
+This is a classic SQL injection vulnerability and is not a secure way to verify credentials.
+
+Authorization Check: The /admin route's authorization check is insufficient. It relies solely on a cookie named 'user' having the value 'admin'.
+
+JavaScript
+
+const user = req.cookies.user;
+if (user !== 'admin') return res.status(403).send('Forbidden');
+An attacker who compromises the 'admin' account or is able to manipulate their cookies could easily bypass this check.

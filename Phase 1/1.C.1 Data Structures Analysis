@@ -1,0 +1,9 @@
+The application uses the JSON format for API responses, as seen in the /admin route where simulated customer data is sent as a JSON string:
+
+JavaScript
+
+res.send(`<h1>Admin Dashboard</h1>
+    <p>Customers table: (simulated)</p>
+    <pre>[{"id":1,"name":"C. Example","email":"cust@example.test"}]</pre>
+    ...`);
+This is also evident in the ffuf_payloads.json file, where the output of the fuzzing tool is stored in JSON format.
