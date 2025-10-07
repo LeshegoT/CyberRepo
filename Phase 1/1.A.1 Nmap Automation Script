@@ -1,55 +1,31 @@
-Here is the comprehensive penetration test report based on the provided evidence.
-
-Penetration Test Report: VulnShop Web Application
-Executive Summary
-This report details the findings of a penetration test conducted on the VulnShop web application. The assessment revealed critical vulnerabilities that expose the application to significant risk. The most severe of these is a SQL injection vulnerability that allows an attacker to bypass authentication, extract sensitive data, and potentially gain administrative control over the application. Additionally, the application was found to be susceptible to brute-force attacks due to the use of weak and easily guessable credentials.
-
-The successful exploitation of these vulnerabilities resulted in unauthorized access to the admin dashboard, demonstrating a complete compromise of the application's security. It is imperative that the identified vulnerabilities are addressed immediately to mitigate the risk of a malicious actor exploiting them.
-
-Methodology
-The penetration test followed a structured methodology designed to simulate a real-world attack scenario. The engagement was conducted in the following phases:
-
-Reconnaissance and Environment Setup: The initial phase involved setting up a containerized attacker environment using a custom Kali Linux Docker image. The target application, vulnshop, was hosted in a separate Docker container, and both were connected to a shared network (pen-test-net) as defined in the docker-compose.yml file.
-
-Static Code Analysis: The application's source code, primarily the app.js file, was analyzed to identify potential security flaws without executing the code. This phase focused on understanding the application's logic, data handling, and control flow.
-
-Vulnerability Scanning and Enumeration: Automated tools such as Nmap were used to scan the target for open ports and services. SQLmap was then used to probe for and identify SQL injection vulnerabilities in the application's search functionality.
-
-Exploitation: Once vulnerabilities were identified, they were actively exploited. Hydra was used to perform a brute-force attack on the login form, and the SQL injection vulnerability was leveraged to extract user credentials from the database.
-
-Post-Exploitation: After gaining unauthorized access, the final step was to explore the extent of the compromise. This included accessing the admin dashboard to confirm the level of access achieved.
-
-Vulnerability Details
-Critical - SQL Injection
-Description: The application's search functionality is vulnerable to SQL injection. The q parameter in the /search endpoint is directly concatenated into a SQL query without proper sanitization or the use of prepared statements. This allows an attacker to inject malicious SQL code and manipulate the database.
-
-Evidence: The SQLmap logs confirm the injection point and the successful enumeration of database tables, including users and products. The tool was able to extract the contents of the users table, revealing all usernames and passwords in plaintext.
-
-Impact: This vulnerability allows for a complete compromise of the database, leading to the theft of sensitive user data, authentication bypass, and potential remote code execution, depending on the database configuration.
-
-High - Brute-Force Attack on Credentials
-Description: The login form at the /login endpoint is susceptible to brute-force attacks. There are no mechanisms in place to prevent or limit repeated login attempts, such as account lockouts or CAPTCHAs. This, combined with weak user passwords, makes it trivial for an attacker to guess credentials.
-
-Evidence: The Hydra tool was used to successfully brute-force the login credentials for the user 'alice' with the password 'password123'.
-
-Impact: A successful brute-force attack grants an attacker unauthorized access to a user's account, potentially leading to further escalation of privileges if the compromised account has administrative rights.
-
-Code Analysis & Scripting
-1.A.1 Nmap Automation Script
-(The script itself was not provided in the evidence files, but a professional penetration tester would create a script similar to this for automation.)
-
-Bash
-
+# 3a. Create the script
+cat << 'EOF' > nmap_scan.sh
 #!/bin/bash
-
-# Simple Nmap Automation Script
-# Usage: ./nmap_scan.sh <target_ip>
-
 TARGET=$1
 OUTPUT_FILE="nmap_scan_results.txt"
-
 echo "Starting Nmap scan for $TARGET..."
-
 nmap -sS -sV -sC -Pn -p 3000 -oN $OUTPUT_FILE $TARGET
-
 echo "Nmap scan complete. Results saved to $OUTPUT_FILE"
+EOF
+
+# 3b. Make it executable
+chmod +x nmap_scan.sh
+
+# 3c. Run it!
+./nmap_scan.sh vulnshop
+Starting Nmap scan for vulnshop...
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-10-07 09:23 UTC
+Nmap scan report for vulnshop (172.18.0.2)
+Host is up (0.0023s latency).
+rDNS record for 172.18.0.2: ethical_hacker_lab2-vulnshop-1.ethical_hacker_lab2_pen-test-net
+
+PORT     STATE SERVICE VERSION
+3000/tcp open  http    Node.js Express framework
+|_http-title: VulnShop
+MAC Address: FA:5D:0A:49:BF:59 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.09 seconds
+Nmap scan complete. Results saved to nmap_scan_results.txt
+
+
